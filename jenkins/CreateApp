@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     def paras = "-u ${params.USER} -p ${params.PASSWORD} -d ${params.DOMAIN} -a ${params.APPNAME} -s ${params.PSERVER} -c ${params.CUSTOM} -t ${params.HTTP} -P ${params.HTTPS} -g ${params.CDN} -b ${params.BLOCK}"
-                    if (params.TEMPLATE == '') {
+                    if ("${params.TEMPLATE}" == "") {
                         echo 'Start execute create app with para:'
                         sh "python sources/create_app.py  ${paras}"
                     } else {
