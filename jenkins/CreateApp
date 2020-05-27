@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'pip install -i https://pypi.tuna.tsinghua.edu.cn/simple request'
+                sh 'pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests'
             }
         }
         stage('Create') {
