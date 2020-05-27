@@ -11,7 +11,7 @@ pipeline {
         string(name: 'HTTPS', defaultValue: '443', description: 'Https port')
         booleanParam(name: 'CDN', defaultValue: false, description: 'Enable cdn')
         booleanParam(name: 'BLOCK', defaultValue: false, description: 'Block status')
-        string(name: 'TEMPLATE', defaultValue: '', description: 'If you would like to bind one template, please specify it')
+        string(name: 'TEMPLATE', defaultValue: '*', description: 'If you would like to bind one template, please specify it')
 
     }
     stages {
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     def paras = "-u ${params.USER} -p ${params.PASSWORD} -d ${params.DOMAIN} -a ${params.APPNAME} -s ${params.PSERVER} -c ${params.CUSTOM} -t ${params.HTTP} -P ${params.HTTPS} -g ${params.CDN} -b ${params.BLOCK}"
-                    if (params.TEMPLATE == '') {
+                    if (params.TEMPLATE == '*') {
                         echo 'Start execute create app with para:'
                         sh "python sources/create_app.py  ${paras}"
                     } else {
