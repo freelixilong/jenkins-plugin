@@ -26,7 +26,7 @@ pipeline {
             }
             steps {
                 echo 'Start execute create app with para:'
-                sh "python sources/create_app.py -u ${params.USER} -p ${params.PASSWORD} -d ${params.DOMAIN} -a ${params.APPNAME} -s ${params.PSERVER} -c ${params.CUSTOM} -t ${params.HTTTP} -P ${params.HTTPS} -g ${params.CDN} -b ${params.BLOCK} -T ${params.TEMPLATE}"
+                sh "python sources/create_app.py -u ${params.USER} -p ${params.PASSWORD} -d ${params.DOMAIN} -a ${params.APPNAME} -s ${params.PSERVER} -c ${params.CUSTOM} -t ${params.HTTP} -P ${params.HTTPS} -g ${params.CDN} -b ${params.BLOCK} -T ${params.TEMPLATE}"
             }
         }
     }
