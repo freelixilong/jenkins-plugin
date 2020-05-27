@@ -102,7 +102,8 @@ def create_app(data={}):
     if token:
         template_id = None
         region = None
-        if data.get("template") != "":
+        template = data.get("template")
+        if template.strip() != "":
             template = Template(token=token)
             template_id = template.get_id_by_name(data.get("template"))
         if not data.get("cdn"):
