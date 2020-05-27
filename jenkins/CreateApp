@@ -3,12 +3,12 @@ pipeline {
     parameters {
         string(name: 'USER', defaultValue: 'admin', description: 'You must input you fortiweb cloud account')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-        string(name: 'APP-NAME', defaultValue: 'My-App', description: 'Your app name')
-        string(name: 'DOMAIN-NAME', defaultValue: 'www.demo.com', description: 'Your domain name')
+        string(name: 'APPNAME', defaultValue: 'My-App', description: 'Your app name')
+        string(name: 'DOMAIN', defaultValue: 'www.demo.com', description: 'Your domain name')
         string(name: 'PSERVER', defaultValue: '1.1.1.1', description: 'Your pserver address')
-        choice(name: 'CUSTOM-PORT', choices: ['HTTP', 'HTTPS', 'BOTH'], description: 'Custom service port')
-        string(name: 'HTTP-PORT', defaultValue: '80', description: 'Http port')
-        string(name: 'HTTPS-PORT', defaultValue: '443', description: 'Https port')
+        choice(name: 'CUSTOM', choices: ['HTTP', 'HTTPS', 'BOTH'], description: 'Custom service port')
+        string(name: 'HTTP', defaultValue: '80', description: 'Http port')
+        string(name: 'HTTPS', defaultValue: '443', description: 'Https port')
         booleanParam(name: 'CDN', defaultValue: false, description: 'Enable cdn')
         booleanParam(name: 'BLOCK', defaultValue: false, description: 'Block status')
         string(name: 'TEMPLATE', defaultValue: '', description: 'If you would like to bind one template, please specify it')
@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 echo 'Start execute create app with para:'
-                sh "python create_app.py -u ${USER} -p ${PASSWORD} -d ${DOMAIN-NAME} -s ${PSERVER} -c ${CUSTOM-PORT} -t ${HTTTP-PORT} -P ${HTTPS-PORT} -g ${CDN} -b ${BLOCK} -T ${TEMPLATE}"
+                sh "python create_app.py -u ${USER} -p ${PASSWORD} -d ${DOMAIN} -a ${APPNAME} -s ${PSERVER} -c ${CUSTOM} -t ${HTTTP} -P ${HTTPS} -g ${CDN} -b ${BLOCK} -T ${TEMPLATE}"
             }
         }
     }
