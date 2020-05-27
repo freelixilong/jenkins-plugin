@@ -21,16 +21,12 @@ pipeline {
             }
         }
         stage('Create') {
-            environment {
-                USER = 'admin'
-                PWD = '$(pwd)'
-            }
             options {
                 timeout(time: 60, unit: 'SECONDS') 
             }
             steps {
                 echo 'Start execute create app with para:'
-                sh "python create_app.py -u ${USER} -p ${PASSWORD} -d ${DOMAIN} -a ${APPNAME} -s ${PSERVER} -c ${CUSTOM} -t ${HTTTP} -P ${HTTPS} -g ${CDN} -b ${BLOCK} -T ${TEMPLATE}"
+                sh "python create_app.py -u ${params.USER} -p ${params.PASSWORD} -d ${params.DOMAIN} -a ${params.APPNAME} -s ${params.PSERVER} -c ${params.CUSTOM} -t ${params.HTTTP} -P ${params.HTTPS} -g ${params.CDN} -b ${params.BLOCK} -T ${params.TEMPLATE}"
             }
         }
     }
