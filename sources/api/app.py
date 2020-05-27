@@ -96,6 +96,7 @@ class AppDel(RequestAuth):
 
 
 def create_app(data={}):
+    print(f"Get the data: {data}")
     token = Token(username=data.get("username", ""), password=data.get("password", ""))
     token = token.get_token()
     if token:

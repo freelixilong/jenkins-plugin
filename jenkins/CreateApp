@@ -30,7 +30,7 @@ pipeline {
             }
             steps {
                 echo 'Start execute create app with para:'
-                sh "python FortiwebCloudApp/sources/create_app.py -u ${USER} -p ${PASSWORD} -d ${DOMAIN-NAME} -s ${PSERVER} -c ${CUSTOM-PORT} -t ${HTTTP-PORT} -P ${HTTPS-PORT} -g ${CDN} -b ${BLOCK} -T ${TEMPLATE}"
+                sh "python create_app.py -u ${USER} -p ${PASSWORD} -d ${DOMAIN-NAME} -s ${PSERVER} -c ${CUSTOM-PORT} -t ${HTTTP-PORT} -P ${HTTPS-PORT} -g ${CDN} -b ${BLOCK} -T ${TEMPLATE}"
             }
         }
     }
